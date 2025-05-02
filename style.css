@@ -557,4 +557,175 @@ footer {
     .subscription-card {
         padding: 2rem;
     }
+}
+
+/* Trend Packages Page Styles */
+.trend-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    padding: 6rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.trend-header .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trend-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trend-header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem;
+}
+
+.package-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+}
+
+.package-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover .package-image img {
+    transform: scale(1.1);
+}
+
+.package-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.package-content {
+    padding: 2rem;
+}
+
+.package-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.package-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.package-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.package-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: #555;
+}
+
+.package-features i {
+    color: #ff6b6b;
+    margin-right: 0.8rem;
+}
+
+.package-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-card i {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.benefit-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .trend-header h1 {
+        font-size: 2rem;
+    }
+    
+    .trend-header p {
+        font-size: 1rem;
+    }
+    
+    .package-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
 } 
