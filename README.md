@@ -1,14 +1,20 @@
-# TikTok Challenge Box 2025
+# TikTok Creator Box 2025
 
-TikTok içerik üreticileri için premium challenge kutuları sunan modern bir e-ticaret platformu.
+TikTok içerik üreticileri için premium challenge kutuları ve trend paketleri sunan modern bir e-ticaret platformu.
 
 ## 🎯 Proje Hakkında
 
-TikTok Challenge Box, içerik üreticilerine her ay güncel trendlere uygun, profesyonel ekipmanlar ve özel içerikler sunan bir platformdur. Platform, üç ana challenge kutusu sunmaktadır:
+TikTok Creator Box, içerik üreticilerine her ay güncel trendlere uygun, profesyonel ekipmanlar ve özel içerikler sunan bir platformdur. Platform, iki ana kategori sunmaktadır:
 
+### Challenge Box'lar
 - **Dance Challenge Box**: LED ışıklı ayakkabılar, neon aksesuarlar ve profesyonel ışık sistemleri
 - **Makeup Challenge Box**: Glass skin seti, ring light ve clean girl makyaj seti
 - **Slime Challenge Box**: Premium slime seti, ASMR mikrofon ve özel efektler
+
+### Trend Paketler
+- **Glowy Makeup Set**: TikTok'ta viral olan glowy makyaj trendi için özel set
+- **ASMR & Slime Set**: ASMR içerik üreticileri için premium set
+- **Aesthetic Desk Set**: Estetik masa düzenleme trendi için özel set
 
 ## ✨ Özellikler
 
