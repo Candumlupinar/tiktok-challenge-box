@@ -1,0 +1,189 @@
+// Language translations
+const translations = {
+    tr: {
+        'nav-home': 'Ana Sayfa',
+        'nav-challenges': 'Challenge\'lar',
+        'nav-subscription': 'Abonelik',
+        'nav-contact': 'İletişim',
+        'hero-title': 'Her Ay Yeni Challenge\'lar, Her Ay Yeni Macera!',
+        'hero-subtitle': 'TikTok\'ta viral olan challenge\'ları yakala, kendi içeriğini üret!',
+        'hero-cta': 'Hemen Başla',
+        'challenges-title': 'Bu Ayın Challenge\'ları',
+        'challenge1-title': 'Dance Challenge Box',
+        'challenge1-desc': 'TikTok\'ta viral olan dans challenge\'ları için premium set',
+        'challenge1-feature1': 'LED Işıklı Ayakkabılar',
+        'challenge1-feature2': 'Neon Aksesuar Seti',
+        'challenge1-feature3': 'Pro Işık Sistemi',
+        'challenge1-feature4': 'Dans Eğitim Videoları',
+        'challenge1-feature5': 'Trend Müzik Listesi',
+        'challenge2-title': 'Makeup Challenge Box',
+        'challenge2-desc': 'TikTok\'ta viral olan makyaj trendleri için özel set',
+        'challenge2-feature1': 'Glass Skin Seti',
+        'challenge2-feature2': 'Ring Light Pro',
+        'challenge2-feature3': 'Clean Girl Makyaj Seti',
+        'challenge2-feature4': 'Makyaj Eğitim Videosu',
+        'challenge2-feature5': 'Trend Filtreler',
+        'challenge3-title': 'Slime Challenge Box',
+        'challenge3-desc': 'TikTok\'ta viral olan ASMR ve slime içerikleri için premium set',
+        'challenge3-feature1': 'Premium Slime Seti',
+        'challenge3-feature2': 'Pro ASMR Mikrofon',
+        'challenge3-feature3': 'Renk Değiştiren Slime',
+        'challenge3-feature4': 'Parlak Slime Seti',
+        'challenge3-feature5': 'ASMR Efekt Paketi',
+        'add-to-cart': 'Sepete Ekle',
+        'subscription-title': 'Challenge Box Aboneliği',
+        'subscription1-title': 'Aylık Box',
+        'subscription1-desc': 'Her ay yeni bir challenge box\'ı',
+        'subscription1-feature1': 'Aylık Challenge Box',
+        'subscription1-feature2': 'Özel Filtreler',
+        'subscription1-feature3': 'Eğitim Videoları',
+        'subscription2-title': 'Premium Box',
+        'subscription2-desc': 'Tüm challenge\'lar ve özel içerikler',
+        'subscription2-feature1': 'Tüm Challenge Box\'ları',
+        'subscription2-feature2': 'Özel Filtreler',
+        'subscription2-feature3': '1-on-1 Eğitim',
+        'subscription2-feature4': 'Early Access',
+        'subscribe-now': 'Hemen Abone Ol',
+        'contact-title': 'Bize Ulaşın',
+        'email-placeholder': 'E-posta adresiniz',
+        'subscribe': 'Abone Ol',
+        'footer-text': '© 2025 ChallengeBox. Tüm hakları saklıdır.',
+        'challenge-month': 'Mayıs 2025',
+        'challenge-slogan': '#ChallengeBoxTrend'
+    },
+    en: {
+        'nav-home': 'Home',
+        'nav-challenges': 'Challenges',
+        'nav-subscription': 'Subscription',
+        'nav-contact': 'Contact',
+        'hero-title': 'New Challenges Every Month, New Adventures Every Month!',
+        'hero-subtitle': 'Catch viral TikTok challenges, create your own content!',
+        'hero-cta': 'Get Started',
+        'challenges-title': 'This Month\'s Challenges',
+        'challenge1-title': 'Dance Challenge Box',
+        'challenge1-desc': 'Premium set for viral TikTok dance challenges',
+        'challenge1-feature1': 'LED Light-up Shoes',
+        'challenge1-feature2': 'Neon Accessory Set',
+        'challenge1-feature3': 'Pro Lighting System',
+        'challenge1-feature4': 'Dance Tutorial Videos',
+        'challenge1-feature5': 'Trending Music List',
+        'challenge2-title': 'Makeup Challenge Box',
+        'challenge2-desc': 'Special set for viral TikTok makeup trends',
+        'challenge2-feature1': 'Glass Skin Set',
+        'challenge2-feature2': 'Ring Light Pro',
+        'challenge2-feature3': 'Clean Girl Makeup Set',
+        'challenge2-feature4': 'Makeup Tutorial Video',
+        'challenge2-feature5': 'Trending Filters',
+        'challenge3-title': 'Slime Challenge Box',
+        'challenge3-desc': 'Premium set for viral TikTok ASMR and slime content',
+        'challenge3-feature1': 'Premium Slime Set',
+        'challenge3-feature2': 'Pro ASMR Microphone',
+        'challenge3-feature3': 'Color Changing Slime',
+        'challenge3-feature4': 'Glitter Slime Set',
+        'challenge3-feature5': 'ASMR Effects Package',
+        'add-to-cart': 'Add to Cart',
+        'subscription-title': 'Challenge Box Subscription',
+        'subscription1-title': 'Monthly Box',
+        'subscription1-desc': 'New challenge box every month',
+        'subscription1-feature1': 'Monthly Challenge Box',
+        'subscription1-feature2': 'Special Filters',
+        'subscription1-feature3': 'Training Videos',
+        'subscription2-title': 'Premium Box',
+        'subscription2-desc': 'All challenges and special content',
+        'subscription2-feature1': 'All Challenge Boxes',
+        'subscription2-feature2': 'Special Filters',
+        'subscription2-feature3': '1-on-1 Training',
+        'subscription2-feature4': 'Early Access',
+        'subscribe-now': 'Subscribe Now',
+        'contact-title': 'Contact Us',
+        'email-placeholder': 'Your email address',
+        'subscribe': 'Subscribe',
+        'footer-text': '© 2025 ChallengeBox. All rights reserved.',
+        'challenge-month': 'May 2025',
+        'challenge-slogan': '#ChallengeBoxTrend'
+    }
+};
+
+// Function to change language
+function changeLanguage(lang) {
+    document.querySelectorAll('[data-tr]').forEach(element => {
+        const key = element.getAttribute('data-tr');
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('[data-tr-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-tr-placeholder');
+        if (translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+
+    // Store language preference
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Language switcher event listener
+document.getElementById('languageSelect').addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+});
+
+// Check for saved language preference
+const savedLanguage = localStorage.getItem('preferred-language');
+if (savedLanguage) {
+    document.getElementById('languageSelect').value = savedLanguage;
+    changeLanguage(savedLanguage);
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Add to cart functionality
+document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const productName = this.parentElement.querySelector('h3').textContent;
+        const currentLang = document.getElementById('languageSelect').value;
+        const message = currentLang === 'tr' ? 
+            `${productName} sepete eklendi!` : 
+            `${productName} added to cart!`;
+        alert(message);
+    });
+});
+
+// Subscription functionality
+document.querySelectorAll('.subscription-card .cta-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const planName = this.parentElement.querySelector('h3').textContent;
+        const currentLang = document.getElementById('languageSelect').value;
+        const message = currentLang === 'tr' ? 
+            `${planName} planına başarıyla abone oldunuz!` : 
+            `Successfully subscribed to ${planName} plan!`;
+        alert(message);
+    });
+});
+
+// Newsletter subscription
+document.querySelector('.contact-form button').addEventListener('click', function() {
+    const email = document.querySelector('.contact-form input').value;
+    const currentLang = document.getElementById('languageSelect').value;
+    if (email) {
+        const message = currentLang === 'tr' ? 
+            'Bültenimize başarıyla abone oldunuz!' : 
+            'Successfully subscribed to our newsletter!';
+        alert(message);
+        document.querySelector('.contact-form input').value = '';
+    } else {
+        const message = currentLang === 'tr' ? 
+            'Lütfen e-posta adresinizi girin.' : 
+            'Please enter your email address.';
+        alert(message);
+    }
+}); 
