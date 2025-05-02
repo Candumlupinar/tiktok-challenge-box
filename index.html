@@ -3,213 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Creator Box 2025 | Premium Content & Trend Sets</title>
+    <title>AI Social Shopping Network | Yeni Nesil Alışveriş Deneyimi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Project Description -->
-    <meta name="description" content="TikTok Challenge Box - TikTok içerik üreticileri için premium challenge kutuları. Her ay güncel trendlere uygun, profesyonel ekipmanlar ve özel içeriklerle içerik üretimini destekleyen bir platform.">
-    <meta name="keywords" content="TikTok, Challenge Box, Content Creation, Premium Box, Dance Challenge, Makeup Challenge, Slime Challenge, ASMR">
-    <meta name="author" content="ChallengeBox Team">
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="TikTok Challenge Box 2025 | Premium Content Creation">
-    <meta property="og:description" content="TikTok içerik üreticileri için premium challenge kutuları. Her ay güncel trendlere uygun, profesyonel ekipmanlar ve özel içerikler.">
-    <meta property="og:image" content="https://i.imgur.com/8XZQY3L.png">
-    <meta property="og:url" content="https://challengebox.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Proje Açıklaması -->
+    <meta name="description" content="AI Social Shopping Network - Yeni Nesil Alışveriş Deneyimi. Gerçek kullanıcılardan canlı deneyimler, yapay zeka destekli öneriler ve kişiselleştirilmiş alışveriş deneyimi.">
+    <meta name="keywords" content="AI Social Shopping, Yeni Nesil Alışveriş, Gerçek Kullanıcı Deneyimi, Yapay Zeka, Sosyal Ağ, Canlı Deneyim, Kişiselleştirilmiş Alışveriş">
+    <meta name="author" content="AI Social Shopping Team">
+    <!-- Open Graph / Sosyal Medya Meta Etiketleri -->
+    <meta property="og:title" content="AI Social Shopping Network | Yeni Nesil Alışveriş Deneyimi">
+    <meta property="og:description" content="Gerçek kullanıcılardan canlı deneyimler, yapay zeka destekli öneriler ve kişiselleştirilmiş alışveriş deneyimi.">
+    <meta property="og:image" content="https://i.imgur.com/aisocialshopping-og.jpg">
+    <meta property="og:url" content="https://aisocialshopping.com">
 </head>
 <body>
     <nav>
         <div class="logo">
-            <img src="https://i.imgur.com/8XZQY3L.png" alt="ChallengeBox Logo" class="nav-logo">
-            <span>ChallengeBox</span>
+            <i class="fas fa-shopping-bag fa-2x"></i>
+            <span>AI Social Shopping</span>
         </div>
         <div class="nav-links">
-            <a href="#home" data-tr="nav-home">Ana Sayfa</a>
-            <a href="#challenges" data-tr="nav-challenges">Challenge'lar</a>
-            <a href="trend-packages.html">Trend Paketleri</a>
-            <a href="#subscription" data-tr="nav-subscription">Abonelik</a>
-            <a href="#contact" data-tr="nav-contact">İletişim</a>
-            <select id="languageSelect" class="language-select">
-                <option value="tr">🇹🇷 TR</option>
-                <option value="en">🇬🇧 EN</option>
-            </select>
+            <a href="#home" class="active" data-translate="nav.home">Ana Sayfa</a>
+            <a href="#features" data-translate="nav.features">Özellikler</a>
+            <a href="#products" data-translate="nav.products">Ürünler</a>
+            <a href="#about" data-translate="nav.about">Hakkımızda</a>
+            <a href="#contact" data-translate="nav.contact">İletişim</a>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="showLoginModal()" data-translate="auth.login">Giriş Yap</button>
+                <button class="register-btn" onclick="showRegisterModal()" data-translate="auth.register">Kayıt Ol</button>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="tr">TR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
     </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+            <h2 data-translate="auth.login">Giriş Yap</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="E-posta" data-translate-placeholder="auth.email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Şifre" data-translate-placeholder="auth.password" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox">
+                        <span data-translate="auth.remember">Beni Hatırla</span>
+                    </label>
+                    <a href="#" data-translate="auth.forgot">Şifremi Unuttum</a>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="auth.login">Giriş Yap</button>
+                <div class="social-login">
+                    <p data-translate="auth.social">Sosyal Medya ile Giriş Yap</p>
+                    <div class="social-buttons">
+                        <button type="button" class="google-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRegisterModal()">&times;</span>
+            <h2 data-translate="auth.register">Kayıt Ol</h2>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Ad Soyad" data-translate-placeholder="auth.fullname" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="E-posta" data-translate-placeholder="auth.email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Şifre" data-translate-placeholder="auth.password" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Şifre Tekrar" data-translate-placeholder="auth.passwordConfirm" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" required>
+                        <span data-translate="auth.terms">Kullanım koşullarını kabul ediyorum</span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="auth.register">Kayıt Ol</button>
+                <div class="social-login">
+                    <p data-translate="auth.social">Sosyal Medya ile Kayıt Ol</p>
+                    <div class="social-buttons">
+                        <button type="button" class="google-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <header id="home">
         <div class="hero">
             <div class="hero-content">
-                <h1 data-tr="hero-title">Premium Challenge Box ile İçerik Üretiminde Yeni Nesil</h1>
-                <p data-tr="hero-subtitle">TikTok'ta viral olan challenge'ları yakala, profesyonel ekipmanlarla kendi içeriğini üret!</p>
+                <h1 data-translate="hero.title">Yapay Zeka ile Sosyal Alışverişin Geleceği</h1>
+                <p data-translate="hero.description">Gerçek kullanıcılardan canlı deneyimler, yapay zeka destekli öneriler ve kişiselleştirilmiş alışveriş deneyimi.</p>
                 <div class="hero-features">
                     <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <span>Premium Ekipmanlar</span>
+                        <i class="fas fa-video"></i>
+                        <span data-translate="features.live">Canlı Deneyim</span>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-bolt"></i>
-                        <span>Anlık Trend</span>
+                        <i class="fas fa-robot"></i>
+                        <span data-translate="features.ai">AI Asistan</span>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-crown"></i>
-                        <span>Elit İçerik</span>
+                        <i class="fas fa-users"></i>
+                        <span data-translate="features.social">Sosyal Ağ</span>
                     </div>
                 </div>
-                <a href="#subscription" class="cta-button" data-tr="hero-cta">Premium Üyelik Başlat</a>
+                <a href="#products" class="cta-button" data-translate="hero.explore">Hemen Keşfet</a>
             </div>
             <div class="hero-image">
-                <img src="https://i.imgur.com/JQZxY3L.jpg" alt="Challenge Box Preview">
+                <div class="hero-icon">
+                    <i class="fas fa-shopping-cart fa-5x"></i>
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="challenges" class="featured-challenges">
+    <section id="features" class="features">
         <div class="section-header">
-            <h2 data-tr="challenges-title">Premium Challenge Box'lar</h2>
-            <p class="section-subtitle" data-tr="challenges-subtitle">Her ay özenle seçilmiş, trend challenge'lar için özel hazırlanmış kutular</p>
+            <h2 data-translate="features.title">Yenilikçi Özellikler</h2>
+            <p data-translate="features.subtitle">Alışveriş deneyiminizi değiştirecek özellikler</p>
         </div>
-        <div class="challenge-logo">
-            <img src="https://i.imgur.com/8XZQY3L.png" alt="ChallengeBox Logo" class="logo-image">
-            <div class="logo-text">
-                <h3 data-tr="challenge-month">Mayıs 2025</h3>
-                <p data-tr="challenge-slogan">#ChallengeBoxElite</p>
-            </div>
-        </div>
-        <div class="challenge-grid">
-            <div class="challenge-card premium">
-                <div class="challenge-image">
-                    <img src="https://i.imgur.com/JQZxY3L.jpg" alt="Dance Challenge Box">
-                    <div class="challenge-badge">Trend</div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-video"></i>
                 </div>
-                <div class="challenge-content">
-                    <h3 data-tr="challenge1-title">Dance Challenge Box</h3>
-                    <p data-tr="challenge1-desc">TikTok'ta viral olan dans challenge'ları için premium set</p>
-                    <ul class="challenge-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge1-feature1">LED Işıklı Ayakkabılar</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge1-feature2">Neon Aksesuar Seti</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge1-feature3">Pro Işık Sistemi</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge1-feature4">Dans Eğitim Videoları</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge1-feature5">Trend Müzik Listesi</span></li>
-                    </ul>
-                    <div class="challenge-footer">
-                        <div class="price-info">
-                            <span class="price">₺799</span>
-                            <span class="original-price">₺999</span>
-                        </div>
-                        <button class="buy-button" data-tr="add-to-cart">Sepete Ekle</button>
-                    </div>
+                <div class="feature-image">
+                    <i class="fas fa-broadcast-tower fa-4x"></i>
+                </div>
+                <h3 data-translate="features.live">Canlı Ürün Deneyimi</h3>
+                <p data-translate="features.liveDesc">Gerçek kullanıcılardan canlı yayınlar ve deneyim paylaşımları</p>
+                <div class="feature-stats">
+                    <span><i class="fas fa-users"></i> 1.2K+ Canlı Yayın</span>
+                    <span><i class="fas fa-star"></i> 4.9/5 Puan</span>
                 </div>
             </div>
-            <div class="challenge-card premium">
-                <div class="challenge-image">
-                    <img src="https://i.imgur.com/KQZxY3L.jpg" alt="Makeup Challenge Box">
-                    <div class="challenge-badge">Viral</div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
                 </div>
-                <div class="challenge-content">
-                    <h3 data-tr="challenge2-title">Makeup Challenge Box</h3>
-                    <p data-tr="challenge2-desc">TikTok'ta viral olan makyaj trendleri için özel set</p>
-                    <ul class="challenge-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge2-feature1">Glass Skin Seti</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge2-feature2">Ring Light Pro</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge2-feature3">Clean Girl Makyaj Seti</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge2-feature4">Makyaj Eğitim Videosu</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge2-feature5">Trend Filtreler</span></li>
-                    </ul>
-                    <div class="challenge-footer">
-                        <div class="price-info">
-                            <span class="price">₺599</span>
-                            <span class="original-price">₺799</span>
-                        </div>
-                        <button class="buy-button" data-tr="add-to-cart">Sepete Ekle</button>
-                    </div>
+                <div class="feature-image">
+                    <i class="fas fa-brain fa-4x"></i>
+                </div>
+                <h3 data-translate="features.ai">AI Asistan</h3>
+                <p data-translate="features.aiDesc">Yapay zeka destekli kişiselleştirilmiş öneriler</p>
+                <div class="feature-stats">
+                    <span><i class="fas fa-magic"></i> 5K+ Öneri</span>
+                    <span><i class="fas fa-check-circle"></i> %98 Doğruluk</span>
                 </div>
             </div>
-            <div class="challenge-card premium">
-                <div class="challenge-image">
-                    <img src="https://i.imgur.com/LQZxY3L.jpg" alt="Slime Challenge Box">
-                    <div class="challenge-badge">ASMR</div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-                <div class="challenge-content">
-                    <h3 data-tr="challenge3-title">Slime Challenge Box</h3>
-                    <p data-tr="challenge3-desc">TikTok'ta viral olan ASMR ve slime içerikleri için premium set</p>
-                    <ul class="challenge-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge3-feature1">Premium Slime Seti</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge3-feature2">Pro ASMR Mikrofon</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge3-feature3">Renk Değiştiren Slime</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge3-feature4">Parlak Slime Seti</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="challenge3-feature5">ASMR Efekt Paketi</span></li>
-                    </ul>
-                    <div class="challenge-footer">
-                        <div class="price-info">
-                            <span class="price">₺499</span>
-                            <span class="original-price">₺699</span>
-                        </div>
-                        <button class="buy-button" data-tr="add-to-cart">Sepete Ekle</button>
-                    </div>
+                <div class="feature-image">
+                    <i class="fas fa-network-wired fa-4x"></i>
+                </div>
+                <h3 data-translate="features.social">Sosyal Ağ</h3>
+                <p data-translate="features.socialDesc">Benzer ilgi alanlarına sahip kullanıcılarla bağlantı kurun</p>
+                <div class="feature-stats">
+                    <span><i class="fas fa-user-friends"></i> 10K+ Kullanıcı</span>
+                    <span><i class="fas fa-comments"></i> 50K+ Etkileşim</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="subscription" class="subscription">
+    <section id="products" class="products">
         <div class="section-header">
-            <h2 data-tr="subscription-title">Premium Challenge Box Aboneliği</h2>
-            <p class="section-subtitle" data-tr="subscription-subtitle">Her ay yeni challenge'lar ve özel içeriklerle içerik üretiminde öne çıkın</p>
+            <h2 data-translate="products.title">Öne Çıkan Ürünler</h2>
+            <p data-translate="products.subtitle">Canlı deneyimlerle keşfedin</p>
         </div>
-        <div class="subscription-grid">
-            <div class="subscription-card">
-                <div class="subscription-header">
-                    <h3 data-tr="subscription1-title">Premium Box</h3>
-                    <p data-tr="subscription1-desc">Aylık premium challenge box</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-mobile-alt fa-4x"></i>
+                    </div>
+                    <div class="live-badge" data-translate="products.live">Canlı</div>
                 </div>
-                <div class="price-tag">
-                    <span class="price">₺799</span>
-                    <span class="period">/ay</span>
+                <div class="product-content">
+                    <h3>iPhone 14 Pro</h3>
+                    <p>3 aktif kullanıcıdan canlı deneyim</p>
+                    <div class="product-features">
+                        <span><i class="fas fa-star"></i> 4.9</span>
+                        <span><i class="fas fa-users"></i> 128 Deneyim</span>
+                        <span><i class="fas fa-clock"></i> 2 Saat</span>
+                    </div>
+                    <button class="view-button" data-translate="products.view">Canlı Deneyim İzle</button>
                 </div>
-                <ul class="subscription-features">
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription1-feature1">Aylık Premium Box</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription1-feature2">Özel Filtreler</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription1-feature3">Eğitim Videoları</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription1-feature4">Trend Analizi</span></li>
-                </ul>
-                <button class="cta-button" data-tr="subscribe-now">Hemen Başla</button>
             </div>
-            <div class="subscription-card elite">
-                <div class="subscription-header">
-                    <div class="elite-badge">Elite</div>
-                    <h3 data-tr="subscription2-title">Elite Box</h3>
-                    <p data-tr="subscription2-desc">Tüm premium özellikler ve özel içerikler</p>
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <i class="fas fa-laptop fa-4x"></i>
+                    </div>
+                    <div class="live-badge" data-translate="products.live">Canlı</div>
                 </div>
-                <div class="price-tag">
-                    <span class="price">₺1499</span>
-                    <span class="period">/ay</span>
+                <div class="product-content">
+                    <h3>MacBook Pro M2</h3>
+                    <p>5 aktif kullanıcıdan canlı deneyim</p>
+                    <div class="product-features">
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                        <span><i class="fas fa-users"></i> 256 Deneyim</span>
+                        <span><i class="fas fa-clock"></i> 3 Saat</span>
+                    </div>
+                    <button class="view-button" data-translate="products.view">Canlı Deneyim İzle</button>
                 </div>
-                <ul class="subscription-features">
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription2-feature1">Tüm Premium Box'lar</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription2-feature2">Özel Filtreler</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription2-feature3">1-on-1 Eğitim</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription2-feature4">Early Access</span></li>
-                    <li><i class="fas fa-check"></i> <span data-tr="subscription2-feature5">Özel Etkinlikler</span></li>
-                </ul>
-                <button class="cta-button elite" data-tr="subscribe-now">Elite Üyelik Başlat</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2 data-translate="about.title">Hakkımızda</h2>
+            <p data-translate="about.description">Yapay zeka ve sosyal ağları birleştiren yenilikçi alışveriş platformu</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <div class="about-icon">
+                    <i class="fas fa-rocket fa-5x"></i>
+                </div>
+                <h3>Vizyonumuz</h3>
+                <p>Alışveriş deneyimini tamamen değiştiriyoruz. Yapay zeka teknolojisi ve gerçek kullanıcı deneyimlerini birleştirerek, daha güvenilir ve kişiselleştirilmiş bir alışveriş platformu sunuyoruz.</p>
+                <h3>Misyonumuz</h3>
+                <p>Her kullanıcıya en doğru ürünü, en doğru zamanda, en doğru kişilerden öğrenme fırsatı sunmak.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                    <span class="number">10K+</span>
+                    <span class="label" data-translate="about.users">Aktif Kullanıcı</span>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-broadcast-tower fa-3x"></i>
+                    </div>
+                    <span class="number">5K+</span>
+                    <span class="label" data-translate="about.products">Canlı Deneyim</span>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile fa-3x"></i>
+                    </div>
+                    <span class="number">98%</span>
+                    <span class="label">Memnuniyet</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="section-header">
-            <h2 data-tr="contact-title">Premium Üyelik İçin Bize Ulaşın</h2>
-            <p class="section-subtitle" data-tr="contact-subtitle">Size özel fırsatlar ve kampanyalar için hemen iletişime geçin</p>
+            <h2 data-translate="contact.title">İletişim</h2>
+            <p data-translate="contact.subtitle">Bizimle iletişime geçin</p>
         </div>
         <div class="contact-container">
-            <div class="contact-form">
-                <input type="email" placeholder="E-posta adresiniz" data-tr-placeholder="email-placeholder">
-                <button class="cta-button" data-tr="subscribe">Premium Üyelik Başlat</button>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <form class="contact-form">
+                <input type="text" placeholder="Adınız" data-translate-placeholder="contact.name">
+                <input type="email" placeholder="E-posta" data-translate-placeholder="contact.email">
+                <textarea placeholder="Mesajınız" data-translate-placeholder="contact.message"></textarea>
+                <button type="submit" class="submit-button" data-translate="contact.send">Gönder</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span data-translate="contact.email">info@aisocialshopping.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span data-translate="contact.phone">+90 (212) 123 45 67</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span data-translate="contact.address">İstanbul, Türkiye</span>
+                </div>
             </div>
         </div>
     </section>
@@ -217,12 +323,28 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="https://i.imgur.com/8XZQY3L.png" alt="ChallengeBox Logo" class="footer-logo-img">
-                <span>ChallengeBox</span>
+                <i class="fas fa-shopping-bag fa-2x"></i>
+                <span>AI Social Shopping</span>
             </div>
-            <p data-tr="footer-text">&copy; 2025 ChallengeBox. Tüm hakları saklıdır.</p>
+            <div class="footer-links">
+                <a href="#home" data-translate="nav.home">Ana Sayfa</a>
+                <a href="#features" data-translate="nav.features">Özellikler</a>
+                <a href="#products" data-translate="nav.products">Ürünler</a>
+                <a href="#about" data-translate="nav.about">Hakkımızda</a>
+                <a href="#contact" data-translate="nav.contact">İletişim</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Social Shopping. Tüm hakları saklıdır.</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html> 

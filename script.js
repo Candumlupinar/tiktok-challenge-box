@@ -49,7 +49,56 @@ const translations = {
         'subscribe': 'Abone Ol',
         'footer-text': '© 2025 ChallengeBox. Tüm hakları saklıdır.',
         'challenge-month': 'Mayıs 2025',
-        'challenge-slogan': '#ChallengeBoxTrend'
+        'challenge-slogan': '#ChallengeBoxTrend',
+        nav: {
+            home: "Ana Sayfa",
+            features: "Özellikler",
+            products: "Ürünler",
+            about: "Hakkımızda",
+            contact: "İletişim"
+        },
+        hero: {
+            title: "Yapay Zeka ile Sosyal Alışveriş Deneyimi",
+            description: "Canlı ürün deneyimleri, yapay zeka asistanı ve gerçek zamanlı kullanıcı etkileşimi ile alışverişinizi daha keyifli hale getirin.",
+            explore: "Hemen Keşfet"
+        },
+        features: {
+            title: "Yenilikçi Özellikler",
+            subtitle: "Alışveriş deneyiminizi dönüştüren benzersiz özellikler",
+            live: "Canlı Ürün Deneyimi",
+            liveDesc: "Ürünleri gerçek zamanlı olarak deneyimleyin",
+            ai: "Yapay Zeka Asistanı",
+            aiDesc: "Kişiselleştirilmiş öneriler ve destek",
+            social: "Sosyal Etkileşim",
+            socialDesc: "Diğer alışveriş severlerle bağlantı kurun"
+        },
+        products: {
+            title: "Öne Çıkan Ürünler",
+            subtitle: "En popüler ürünlerimizi keşfedin",
+            live: "Canlı",
+            viewers: "İzleyici",
+            features: "Özellikler",
+            view: "İncele"
+        },
+        about: {
+            title: "Hakkımızda",
+            subtitle: "Vizyonumuz ve Misyonumuz",
+            description: "Yapay zeka ve sosyal etkileşimi bir araya getirerek alışveriş deneyimini yeniden tanımlıyoruz.",
+            users: "Aktif Kullanıcı",
+            products: "Ürün",
+            reviews: "Değerlendirme"
+        },
+        contact: {
+            title: "İletişim",
+            subtitle: "Bizimle İletişime Geçin",
+            name: "Adınız",
+            email: "E-posta Adresiniz",
+            message: "Mesajınız",
+            send: "Gönder",
+            address: "Adres",
+            phone: "Telefon",
+            email: "E-posta"
+        }
     },
     en: {
         'nav-home': 'Home',
@@ -100,7 +149,56 @@ const translations = {
         'subscribe': 'Subscribe',
         'footer-text': '© 2025 ChallengeBox. All rights reserved.',
         'challenge-month': 'May 2025',
-        'challenge-slogan': '#ChallengeBoxTrend'
+        'challenge-slogan': '#ChallengeBoxTrend',
+        nav: {
+            home: "Home",
+            features: "Features",
+            products: "Products",
+            about: "About",
+            contact: "Contact"
+        },
+        hero: {
+            title: "AI-Powered Social Shopping Experience",
+            description: "Enhance your shopping experience with live product experiences, AI assistant, and real-time user interaction.",
+            explore: "Explore Now"
+        },
+        features: {
+            title: "Innovative Features",
+            subtitle: "Unique features that transform your shopping experience",
+            live: "Live Product Experience",
+            liveDesc: "Experience products in real-time",
+            ai: "AI Assistant",
+            aiDesc: "Personalized recommendations and support",
+            social: "Social Interaction",
+            socialDesc: "Connect with other shoppers"
+        },
+        products: {
+            title: "Featured Products",
+            subtitle: "Discover our most popular products",
+            live: "Live",
+            viewers: "Viewers",
+            features: "Features",
+            view: "View"
+        },
+        about: {
+            title: "About Us",
+            subtitle: "Our Vision and Mission",
+            description: "We're redefining the shopping experience by combining AI and social interaction.",
+            users: "Active Users",
+            products: "Products",
+            reviews: "Reviews"
+        },
+        contact: {
+            title: "Contact",
+            subtitle: "Get in Touch",
+            name: "Your Name",
+            email: "Your Email",
+            message: "Your Message",
+            send: "Send",
+            address: "Address",
+            phone: "Phone",
+            email: "Email"
+        }
     }
 };
 
@@ -122,6 +220,36 @@ function changeLanguage(lang) {
 
     // Store language preference
     localStorage.setItem('preferred-language', lang);
+
+    // Aktif dil butonunu güncelle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Metinleri güncelle
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        const keys = key.split('.');
+        let value = translations[lang];
+        for (const k of keys) {
+            value = value[k];
+        }
+        element.textContent = value;
+    });
+
+    // Placeholder'ları güncelle
+    document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        const keys = key.split('.');
+        let value = translations[lang];
+        for (const k of keys) {
+            value = value[k];
+        }
+        element.placeholder = value;
+    });
 }
 
 // Language switcher event listener
@@ -186,4 +314,18 @@ document.querySelector('.contact-form button').addEventListener('click', functio
             'Please enter your email address.';
         alert(message);
     }
+});
+
+// Sayfa yüklendiğinde
+document.addEventListener('DOMContentLoaded', () => {
+    // Dil değiştirme butonlarına event listener ekle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.textContent.toLowerCase();
+            changeLanguage(lang);
+        });
+    });
+
+    // Varsayılan dili ayarla
+    changeLanguage('tr');
 }); 

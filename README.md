@@ -1,6 +1,6 @@
-# TikTok Creator Box 2025
+# AI Social Shopping Network
 
-TikTok içerik üreticileri için premium challenge kutuları ve trend paketleri sunan modern bir e-ticaret platformu.
+Modern ve yenilikçi bir e-ticaret platformu. Yapay zeka destekli öneriler, canlı ürün deneyimleri ve sosyal ağ özellikleriyle alışveriş deneyimini yeniden tanımlıyor.
 
 ## 🎯 Proje Hakkında
 
@@ -18,31 +18,31 @@ TikTok Creator Box, içerik üreticilerine her ay güncel trendlere uygun, profe
 
 ## ✨ Özellikler
 
-- 🌐 Çoklu dil desteği (Türkçe/İngilizce)
-- 📱 Responsive tasarım
-- 🎨 Modern ve kullanıcı dostu arayüz
-- 💳 Kolay ödeme sistemi
-- 📦 Aylık abonelik seçenekleri
-- 🎁 Premium ve Elite üyelik paketleri
+- 🌟 Canlı Ürün Deneyimi
+- 🤖 AI Asistan
+- 👥 Sosyal Ağ Entegrasyonu
+- 🌐 Çoklu Dil Desteği (TR/EN)
+- 📱 Responsive Tasarım
+- 🔐 Güvenli Giriş/Kayıt Sistemi
 
 ## 🛠️ Teknolojiler
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript
 - Font Awesome Icons
-- Google Fonts (Poppins)
+- Google Fonts
 
 ## 🚀 Kurulum
 
-1. Projeyi klonlayın:
+1. Repository'yi klonlayın:
 ```bash
-git clone https://github.com/yourusername/tiktok-challenge-box.git
+git clone https://github.com/[kullanıcı-adı]/ai-social-shopping.git
 ```
 
 2. Proje dizinine gidin:
 ```bash
-cd tiktok-challenge-box
+cd ai-social-shopping
 ```
 
 3. `index.html` dosyasını bir web tarayıcısında açın.
@@ -53,14 +53,14 @@ Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICEN
 
 ## 👥 Katkıda Bulunma
 
-1. Bu depoyu fork edin
+1. Bu repository'yi fork edin
 2. Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
 3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
 4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Bir Pull Request oluşturun
+5. Pull Request oluşturun
 
 ## 📞 İletişim
 
-ChallengeBox Team - [@challengebox](https://twitter.com/challengebox)
+Proje Sahibi - [@kullanıcı-adı](https://github.com/kullanıcı-adı)
 
-Proje Linki: [https://github.com/yourusername/tiktok-challenge-box](https://github.com/yourusername/tiktok-challenge-box) 
+Proje Linki: [https://github.com/kullanıcı-adı/ai-social-shopping](https://github.com/kullanıcı-adı/ai-social-shopping) 
