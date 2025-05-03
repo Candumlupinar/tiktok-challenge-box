@@ -55,7 +55,9 @@ const translations = {
             features: "Özellikler",
             products: "Ürünler",
             about: "Hakkımızda",
-            contact: "İletişim"
+            contact: "İletişim",
+            global: "Global",
+            experience: "Deneyim"
         },
         hero: {
             title: "Yapay Zeka ile Sosyal Alışveriş Deneyimi",
@@ -98,6 +100,66 @@ const translations = {
             address: "Adres",
             phone: "Telefon",
             email: "E-posta"
+        },
+        auth: {
+            login: "Giriş Yap",
+            register: "Kayıt Ol",
+            email: "E-posta",
+            password: "Şifre",
+            fullname: "Ad Soyad",
+            passwordConfirm: "Şifre Tekrar",
+            remember: "Beni Hatırla",
+            forgot: "Şifremi Unuttum",
+            terms: "Kullanım koşullarını kabul ediyorum",
+            social: "Sosyal Medya ile Giriş Yap"
+        },
+        global: {
+            title: "Global Alışveriş Deneyimi",
+            subtitle: "Dünyanın her yerinden alışveriş yapın",
+            languages: "Dil Desteği",
+            payments: "Ödeme Yöntemleri"
+        },
+        experience: {
+            title: "Sanal Alışveriş Deneyimi",
+            subtitle: "Ürünleri sanal ortamda deneyimleyin",
+            ar: {
+                title: "AR Deneyimi",
+                desc: "Ürünleri gerçek ortamınızda görün"
+            },
+            "3d": {
+                title: "3D Görüntüleme",
+                desc: "Ürünleri her açıdan inceleyin"
+            },
+            virtual: {
+                title: "Sanal Deneme",
+                desc: "Kıyafetleri sanal ortamda deneyin"
+            },
+            demo: {
+                text: "AR Deneyimini Başlat",
+                button: "Dene"
+            }
+        },
+        pdf: {
+            title: {
+                en: "Educational Materials",
+                tr: "Eğitim Materyalleri"
+            },
+            subtitle: {
+                en: "Special educational content from experts",
+                tr: "Uzmanlardan özel eğitim içerikleri"
+            },
+            live: {
+                en: "Live",
+                tr: "Canlı"
+            },
+            preview: {
+                en: "Preview",
+                tr: "Önizleme"
+            },
+            buy: {
+                en: "Buy Now",
+                tr: "Satın Al"
+            }
         }
     },
     en: {
@@ -155,7 +217,9 @@ const translations = {
             features: "Features",
             products: "Products",
             about: "About",
-            contact: "Contact"
+            contact: "Contact",
+            global: "Global",
+            experience: "Experience"
         },
         hero: {
             title: "AI-Powered Social Shopping Experience",
@@ -198,33 +262,76 @@ const translations = {
             address: "Address",
             phone: "Phone",
             email: "Email"
+        },
+        auth: {
+            login: "Login",
+            register: "Register",
+            email: "Email",
+            password: "Password",
+            fullname: "Full Name",
+            passwordConfirm: "Confirm Password",
+            remember: "Remember Me",
+            forgot: "Forgot Password",
+            terms: "I accept the terms of service",
+            social: "Login with Social Media"
+        },
+        global: {
+            title: "Global Shopping Experience",
+            subtitle: "Shop from anywhere in the world",
+            languages: "Language Support",
+            payments: "Payment Methods"
+        },
+        experience: {
+            title: "Virtual Shopping Experience",
+            subtitle: "Experience products in virtual environment",
+            ar: {
+                title: "AR Experience",
+                desc: "See products in your real environment"
+            },
+            "3d": {
+                title: "3D Viewing",
+                desc: "Examine products from every angle"
+            },
+            virtual: {
+                title: "Virtual Try-on",
+                desc: "Try clothes in virtual environment"
+            },
+            demo: {
+                text: "Start AR Experience",
+                button: "Try Now"
+            }
+        },
+        pdf: {
+            title: {
+                en: "Educational Materials",
+                tr: "Eğitim Materyalleri"
+            },
+            subtitle: {
+                en: "Special educational content from experts",
+                tr: "Uzmanlardan özel eğitim içerikleri"
+            },
+            live: {
+                en: "Live",
+                tr: "Canlı"
+            },
+            preview: {
+                en: "Preview",
+                tr: "Önizleme"
+            },
+            buy: {
+                en: "Buy Now",
+                tr: "Satın Al"
+            }
         }
     }
 };
 
 // Function to change language
 function changeLanguage(lang) {
-    document.querySelectorAll('[data-tr]').forEach(element => {
-        const key = element.getAttribute('data-tr');
-        if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-
-    document.querySelectorAll('[data-tr-placeholder]').forEach(element => {
-        const key = element.getAttribute('data-tr-placeholder');
-        if (translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
-    });
-
-    // Store language preference
-    localStorage.setItem('preferred-language', lang);
-
     // Aktif dil butonunu güncelle
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.toLowerCase() === lang) {
+        if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('active');
         }
     });
@@ -234,10 +341,20 @@ function changeLanguage(lang) {
         const key = element.getAttribute('data-translate');
         const keys = key.split('.');
         let value = translations[lang];
+        
+        // Nested objeleri kontrol et
         for (const k of keys) {
-            value = value[k];
+            if (value && value[k] !== undefined) {
+                value = value[k];
+            } else {
+                value = key; // Eğer çeviri bulunamazsa orijinal metni kullan
+                break;
+            }
         }
-        element.textContent = value;
+        
+        if (typeof value === 'string') {
+            element.textContent = value;
+        }
     });
 
     // Placeholder'ları güncelle
@@ -245,87 +362,233 @@ function changeLanguage(lang) {
         const key = element.getAttribute('data-translate-placeholder');
         const keys = key.split('.');
         let value = translations[lang];
+        
+        // Nested objeleri kontrol et
         for (const k of keys) {
-            value = value[k];
+            if (value && value[k] !== undefined) {
+                value = value[k];
+            } else {
+                value = key; // Eğer çeviri bulunamazsa orijinal metni kullan
+                break;
+            }
         }
-        element.placeholder = value;
+        
+        if (typeof value === 'string') {
+            element.placeholder = value;
+        }
     });
+
+    // HTML lang attribute'unu güncelle
+    document.documentElement.lang = lang;
+
+    // Dil tercihini kaydet
+    localStorage.setItem('preferred-language', lang);
 }
 
-// Language switcher event listener
-document.getElementById('languageSelect').addEventListener('change', (e) => {
-    changeLanguage(e.target.value);
-});
+// Bildirim göster
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
 
-// Check for saved language preference
-const savedLanguage = localStorage.getItem('preferred-language');
-if (savedLanguage) {
-    document.getElementById('languageSelect').value = savedLanguage;
-    changeLanguage(savedLanguage);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
 }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Add to cart functionality
-document.querySelectorAll('.buy-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const productName = this.parentElement.querySelector('h3').textContent;
-        const currentLang = document.getElementById('languageSelect').value;
-        const message = currentLang === 'tr' ? 
-            `${productName} sepete eklendi!` : 
-            `${productName} added to cart!`;
-        alert(message);
-    });
-});
-
-// Subscription functionality
-document.querySelectorAll('.subscription-card .cta-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const planName = this.parentElement.querySelector('h3').textContent;
-        const currentLang = document.getElementById('languageSelect').value;
-        const message = currentLang === 'tr' ? 
-            `${planName} planına başarıyla abone oldunuz!` : 
-            `Successfully subscribed to ${planName} plan!`;
-        alert(message);
-    });
-});
-
-// Newsletter subscription
-document.querySelector('.contact-form button').addEventListener('click', function() {
-    const email = document.querySelector('.contact-form input').value;
-    const currentLang = document.getElementById('languageSelect').value;
-    if (email) {
-        const message = currentLang === 'tr' ? 
-            'Bültenimize başarıyla abone oldunuz!' : 
-            'Successfully subscribed to our newsletter!';
-        alert(message);
-        document.querySelector('.contact-form input').value = '';
-    } else {
-        const message = currentLang === 'tr' ? 
-            'Lütfen e-posta adresinizi girin.' : 
-            'Please enter your email address.';
-        alert(message);
-    }
-});
-
-// Sayfa yüklendiğinde
-document.addEventListener('DOMContentLoaded', () => {
-    // Dil değiştirme butonlarına event listener ekle
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.textContent.toLowerCase();
+// Sayfa yüklendiğinde çalışacak kodlar
+document.addEventListener('DOMContentLoaded', function() {
+    // Dil butonlarına event listener'lar ekle
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
             changeLanguage(lang);
         });
     });
 
-    // Varsayılan dili ayarla
-    changeLanguage('tr');
+    // Varsayılan dili ayarla (localStorage'dan veya TR)
+    const savedLang = localStorage.getItem('preferred-language') || 'tr';
+    changeLanguage(savedLang);
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add to cart functionality
+    document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.parentElement.querySelector('h3').textContent;
+            const currentLang = document.getElementById('languageSelect').value;
+            const message = currentLang === 'tr' ? 
+                `${productName} sepete eklendi!` : 
+                `${productName} added to cart!`;
+            alert(message);
+        });
+    });
+
+    // Subscription functionality
+    document.querySelectorAll('.subscription-card .cta-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const planName = this.parentElement.querySelector('h3').textContent;
+            const currentLang = document.getElementById('languageSelect').value;
+            const message = currentLang === 'tr' ? 
+                `${planName} planına başarıyla abone oldunuz!` : 
+                `Successfully subscribed to ${planName} plan!`;
+            alert(message);
+        });
+    });
+
+    // Newsletter subscription
+    document.querySelector('.contact-form button').addEventListener('click', function() {
+        const email = document.querySelector('.contact-form input').value;
+        const currentLang = document.getElementById('languageSelect').value;
+        if (email) {
+            const message = currentLang === 'tr' ? 
+                'Bültenimize başarıyla abone oldunuz!' : 
+                'Successfully subscribed to our newsletter!';
+            alert(message);
+            document.querySelector('.contact-form input').value = '';
+        } else {
+            const message = currentLang === 'tr' ? 
+                'Lütfen e-posta adresinizi girin.' : 
+                'Please enter your email address.';
+            alert(message);
+        }
+    });
+
+    // Modal functionality
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
+    const loginBtn = document.querySelector('.login-btn');
+    const registerBtn = document.querySelector('.register-btn');
+    const closeButtons = document.querySelectorAll('.close');
+
+    // Show modals
+    loginBtn.addEventListener('click', () => {
+        loginModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    registerBtn.addEventListener('click', () => {
+        registerModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close modals
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            loginModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        if (e.target === registerModal) {
+            registerModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Giriş formu gönderimi
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const rememberMe = document.getElementById('loginRemember').checked;
+
+        // Kullanıcı verilerini kontrol et
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        
+        if (!userData || userData.email !== email) {
+            showNotification('E-posta adresi bulunamadı!', 'error');
+            return;
+        }
+
+        // Başarılı giriş bildirimi göster
+        showNotification('Hoş geldiniz! Başarıyla giriş yaptınız.', 'success');
+
+        // Modal'ı kapat
+        document.getElementById('loginModal').style.display = 'none';
+
+        // Profil sayfasına yönlendir
+        setTimeout(() => {
+            window.location.href = 'profile.html';
+        }, 1500);
+    });
+
+    // Kayıt formu gönderimi
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fullName = document.getElementById('registerFullName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        const terms = document.getElementById('registerTerms').checked;
+
+        if (!terms) {
+            showNotification('Lütfen kullanım koşullarını kabul edin.', 'error');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showNotification('Şifreler eşleşmiyor!', 'error');
+            return;
+        }
+
+        // Kullanıcı verilerini kaydet
+        const userData = {
+            fullName: fullName,
+            email: email,
+            phone: '',
+            address: '',
+            preferences: {
+                language: 'tr',
+                currency: 'TRY',
+                theme: 'light',
+                notifications: {
+                    email: true,
+                    sms: false,
+                    push: true
+                }
+            }
+        };
+
+        // localStorage'a kaydet
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Başarılı kayıt bildirimi göster
+        showNotification('Hoş geldiniz! Başarıyla kayıt oldunuz.', 'success');
+
+        // Modal'ı kapat
+        document.getElementById('registerModal').style.display = 'none';
+
+        // Profil sayfasına yönlendir
+        setTimeout(() => {
+            window.location.href = 'profile.html';
+        }, 1500);
+    });
+
+    // Social login buttons
+    document.querySelectorAll('.social-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const provider = button.classList.contains('google') ? 'Google' : 'Facebook';
+            console.log(`${provider} ile giriş yapılıyor...`);
+            // Burada sosyal medya girişi işlemleri yapılacak
+        });
+    });
 }); 
